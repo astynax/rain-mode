@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Rain Mode</title>
+    <script src="rain.min.js"></script>
+    <style type="text/css" media="screen">
+      .rain {
+        background-color: black;
+      }
+      .raindrop-near {
+        color: #7ff;
+      }
+      .raindrop-far {
+        color: #f7f;
+      }
+      .raindrop-very-far {
+        color: #777;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="window"></div>
+    <script type="text/javascript">
+      const app = Elm.Main.init({
+        node: document.getElementById('window'),
+        flags: {
+          width: 50,
+          height: 5
+        }
+      });
+    </script>
+  </body>
+</html>
