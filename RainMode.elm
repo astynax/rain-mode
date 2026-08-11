@@ -1,4 +1,4 @@
-module Main exposing (main)
+module RainMode exposing (main)
 
 import Browser
 import Html exposing (Html)
@@ -58,7 +58,6 @@ view : Model -> Html a
 view model =
     Html.div
         [ style "white-space" "pre"
-        , style "font-family" "mono"
         , class "rain"
         ]
         <| List.indexedMap (viewRow <| visibleWidth model) model
@@ -66,6 +65,10 @@ view model =
 viewRow : Int -> Int -> Row -> Html a
 viewRow w i drops =
     Html.div [] <| List.map viewDrop <| List.take w <| List.drop i drops
+
+singleDrop : List (Html a)
+singleDrop = 
+    [ Html.text "/" ]
 
 viewDrop : Drop -> Html a
 viewDrop drop =
@@ -76,11 +79,7 @@ viewDrop drop =
                 Near -> [class "raindrop-near"]
                 Far -> [class "raindrop-far"]
                 VeryFar -> [class "raindrop-very-far"]
-        inner =
-            case drop of
-                None -> " "
-                _ -> "/"
-    in Html.span att [ Html.text inner ]
+    in Html.span att singleDrop
 
 empty : Int -> Int -> List Row
 empty w h =

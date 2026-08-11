@@ -5,8 +5,14 @@
     <title>Rain Mode</title>
     <script src="rain.min.js"></script>
     <style type="text/css" media="screen">
+      body {
+        color: black;
+        background-color: black;
+        font-size: 3em;
+      }
       .rain {
         background-color: black;
+        font-family: monospace;
       }
       .raindrop-near {
         color: #7ff;
@@ -22,11 +28,11 @@
   <body>
     <div id="window"></div>
     <script type="text/javascript">
-      const app = Elm.Main.init({
+      const app = Elm.RainMode.init({
         node: document.getElementById('window'),
         flags: {
-          width: 50,
-          height: 5
+          width: 40,
+          height: 25
         }
       });
     </script>
